@@ -46,6 +46,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ 
+
+ 
+
+<!-- PNG fallback -->
+<link rel="icon" type="image/png" href="favicon_io/favicon-16x16.png" />
+
+
   <style>
     body { font-family: 'Inter', sans-serif; }
     .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
@@ -102,6 +110,23 @@
     .custom-button.bg-teal-600:hover {
       background: linear-gradient(to right, #004750, #006674);
     }
+    
+    
+    #whatsapp-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000; /* Ensures it stays on top */
+}
+
+#whatsapp-button a {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+#whatsapp-button a:hover {
+  transform: scale(1.1); /* Slight zoom on hover for better UX */
+}
   </style>
 </head>
 <body class="bg-gray-100 smooth-scroll">
@@ -109,7 +134,8 @@
   <header class="bg-gradient-to-r from-teal-700 to-teal-800 text-white shadow-lg sticky top-0 z-50">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center py-4 px-4 md:px-8">
       <div class="flex items-center justify-between w-full md:w-auto">
-        <img src="https://placehold.co/150x40/005566/ff6f61?text=Winter+School" alt="Winter School Logo" class="h-10 transition-transform duration-300 hover:scale-110 cursor-pointer" onclick="showSection('home')">
+        <img src="img/scml.jpg" alt="Winter School Logo" class="h-10 transition-transform duration-300 hover:scale-110 cursor-pointer" onclick="showSection('home')">
+         <span style="font-size: 1.5em; font-weight: bold; margin-left: 10px;">SCML-2025</span>     
         <button onclick="toggleMenu()" class="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-white rounded-lg p-2" aria-expanded="false" aria-label="Toggle navigation menu">
           <svg id="menu-icon" class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -122,7 +148,7 @@
           <li><button onclick="showSection('about')" class="p-2 rounded-lg transition duration-300 font-semibold text-gray-200 hover:text-white hover:bg-teal-700 nav-link" data-section="about">About</button></li>
           <li><button onclick="showSection('speaker')" class="p-2 rounded-lg transition duration-300 font-semibold text-gray-200 hover:text-white hover:bg-teal-700 nav-link" data-section="speaker">Speaker</button></li>
           <li><button onclick="showSection('registration')" class="p-2 rounded-lg transition duration-300 font-semibold text-gray-200 hover:text-white hover:bg-teal-700 nav-link" data-section="registration">Registration</button></li>
-          <li><button onclick="showSection('schedule')" class="p-2 rounded-lg transition duration-300 font-semibold text-gray-200 hover:text-white hover:bg-teal-700 nav-link" data-section="schedule">Schedule</button></li>
+          <!-- <li><button onclick="showSection('schedule')" class="p-2 rounded-lg transition duration-300 font-semibold text-gray-200 hover:text-white hover:bg-teal-700 nav-link" data-section="schedule">Schedule</button></li> -->
           <li><button onclick="showSection('organiser')" class="p-2 rounded-lg transition duration-300 font-semibold text-gray-200 hover:text-white hover:bg-teal-700 nav-link" data-section="organiser">Organiser</button></li>
         </ul>
       </nav>
@@ -137,12 +163,32 @@
         <div class="flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-12">
           <div class="lg:w-1/2 text-center lg:text-left animate-fade-in-up">
             <h1 class="text-4xl md:text-6xl font-extrabold text-coral-400 mb-4">Winter School — Scientific Computing & Machine Learning</h1>
+            
             <h2 class="text-xl md:text-3xl font-light mb-6">Five Days of Lectures, Hands-on Sessions, and Expert Talks</h2>
-            <p class="text-lg mb-4 max-w-lg mx-auto lg:mx-0">Join us from <span class="font-bold">Dec 22–26, 2025</span> at NIT Jalandhar, Punjab, for an immersive onsite program organized by the Dept. of Mathematics & Computing. Learn from international and national speakers.</p>
+            
+            
+            
+            <p class="text-lg mb-4 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+  Join us from
+  <span class="inline-block px-3 py-1 mx-1 rounded-md
+               bg-blue-100 text-blue-800 font-semibold
+               tracking-wide">
+    Dec 22–26, 2025
+  </span>
+  at NIT Jalandhar, Punjab, for an immersive onsite program organized by the
+  Dept. of Mathematics &amp; Computing. Learn from international and national speakers.
+</p>
+
             <p class="text-lg mb-8 max-w-lg mx-auto lg:mx-0">Explore numerical methods, scientific computing, and machine learning, including Physics-Informed Neural Networks, through a blend of lectures, labs, and networking opportunities.</p>
+            
+            
+            
+        
+
+            
             <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center lg:justify-start">
-              <a href="#registration" class="custom-button bg-coral-500 text-white inline-block">Register Now</a>
-              <a href="https://placehold.co/600x800/ffffff/000000?text=Brochure+PDF" target="_blank" class="custom-button bg-teal-600 text-white inline-block">View Brochure (PDF)</a>
+              <button onclick="showSection('registration')" class="custom-button bg-coral-500 text-white inline-block">Registration closed</button>
+              <a href="img/brochure.pdf" target="_blank" class="custom-button bg-teal-600 text-white inline-block">View Brochure (PDF)</a>
             </div>
           </div>
           <div class="lg:w-1/2 text-center animate-fade-in-up delay-200">
@@ -154,17 +200,82 @@
                   <span class="text-sm">Expert Speakers</span>
                 </div>
                 <div class="bg-white bg-opacity-30 backdrop-blur-lg rounded-xl p-4 text-center text-white font-bold shadow-lg transform transition-transform duration-500 hover:scale-110">
-                  <h4 class="text-2xl text-coral-400">8</h4>
+                  <h4 class="text-2xl text-coral-400">15</h4>
                   <span class="text-sm">Interactive Sessions</span>
                 </div>
                 <div class="bg-white bg-opacity-30 backdrop-blur-lg rounded-xl p-4 text-center text-white font-bold shadow-lg transform transition-transform duration-500 hover:scale-110">
-                  <h4 class="text-2xl text-coral-400">350+</h4>
+                  <h4 class="text-2xl text-coral-400">80+</h4>
                   <span class="text-sm">Attendees</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+         <!-- Featured Speaker Profile -->
+        <div class="mt-12 text-center animate-fade-in-up delay-300">
+  <h2 class="text-4xl md:text-6xl font-extrabold text-coral-400 mb-4">Our Eminent Speaker</h2>
+
+ <!-- Speakers Container -->
+<div class="container mx-auto px-4">
+  <div class="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-6">
+
+    <!-- Speaker Card -->
+    <div class="w-full sm:w-80 lg:w-1/3 featured-speaker-card bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+      <div class="flex flex-col items-center space-y-4">
+        <img src="img/ameya.jpg" alt="Prof. Ameya D. Jagtap" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <div>
+          <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www.wpi.edu/people/faculty/ajagtap" target="_blank" class="hover:underline">
+              Prof. Ameya D. Jagtap
+            </a>
+          </h3>
+          <p class="text-sm text-gray-600">Worcester Polytechnic Institute, USA</p>
+        </div>
+        <p class="text-sm text-gray-700 max-w-md text-center">
+          Assistant Professor of Applied Mathematics at Brown University for three and a half years
+        </p>
+        <div class="flex space-x-2">
+          <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Speaker Card -->
+    <div class="w-full sm:w-80 lg:w-1/3 featured-speaker-card bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+      <div class="flex flex-col items-center space-y-4">
+        <img src="img/youngjoon.png" alt="Prof. Youngjoon Hong" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <div>
+          <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www.youngjoonhong.com/publication" target="_blank" class="hover:underline">
+              Prof. Youngjoon Hong
+            </a>
+          </h3>
+          <p class="text-sm text-gray-600">Seoul National University, S Korea</p>
+        </div>
+        <p class="text-sm text-gray-700 max-w-md text-center">
+          Associate Professor of Department of Mathematical Sciences & Interdisciplinary Program in AI & Computer Science and Technology
+        </p>
+        <div class="flex space-x-2">
+          <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- Button -->
+  <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center lg:justify-start mt-6">
+    <button onclick="showSection('speaker')" class="custom-button bg-coral-500 text-white inline-block" data-section="speaker">
+      Know more Speakers...
+    </button>
+  </div>
+</div>
+
       </div>
     </section>
 
@@ -174,8 +285,18 @@
         <div class="text-center animate-fade-in-up">
           <h1 class="text-4xl md:text-5xl font-extrabold text-teal-800 mb-4">About the Winter School</h1>
           <div class="w-16 h-1 bg-coral-500 rounded mb-6 mx-auto"></div>
-          <p class="text-lg text-gray-700 max-w-2xl mx-auto">The Winter School is a five-day program designed to introduce numerical methods, scientific computing techniques, and machine learning approaches, including Physics-Informed Neural Networks. Tailored for graduate students, researchers, and professionals, it combines lectures, hands-on labs, and expert talks to foster innovation and collaboration.</p>
-        </div>
+          <p class="text-lg text-gray-700 max-w-4xl mx-auto text-justify">The Winter School on Scientific Computing and
+                    Machine Learning: Principles and Applications aims to equip participants with a deep understanding of computational techniques
+                    and data-driven methods for solving complex scientific and engineering problems. Over five days, the program will:<br>
+                    <b>Introduce Core Concepts –</b> Provide foundational knowledge in scientific computing, numerical methods, and machine learning
+                    algorithms, emphasizing their relevance in modeling and simulation. <br>
+                    <b>Explore Integration Strategies –</b> Discuss the synergy between machine learning and traditional scientific computing approaches,
+                    including physics-informed neural networks (PINNs), surrogate modeling, and data assimilation.<br>
+                    <b>Hands-on Experience –</b> Facilitate interactive sessions, coding labs, and real-world applications to help participants implement
+                    computational algorithms and ML models using Python and scientific libraries. This Winter School is designed for graduate
+                    students, researchers, and professionals aiming to enhance their computational skills and apply machine learning to real-world scientific challenges 
+            </p>
+          </div>
         <div class="mt-12 flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 lg:space-x-12">
           <div class="lg:w-1/2 text-center lg:text-left animate-fade-in-up delay-200">
             <h2 class="text-2xl font-bold text-teal-700 mb-4">Key Aims</h2>
@@ -184,7 +305,7 @@
               <li><i class="fas fa-check-circle text-coral-500 mr-2"></i>Explore the integration of machine learning with scientific computing.</li>
               <li><i class="fas fa-check-circle text-coral-500 mr-2"></i>Provide hands-on sessions with guided code and datasets.</li>
             </ul>
-            <a href="#registration" class="custom-button bg-coral-500 text-white inline-block mt-8">Join Us Today</a>
+            <button onclick="showSection('registration')" class="custom-button bg-coral-500 text-white inline-block mt-8">Join Us Today</button>
           </div>
           <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up">
             <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
@@ -211,57 +332,187 @@
     <section id="speaker" class="bg-white min-h-screen py-16 hidden">
       <div class="container mx-auto p-4 md:p-8">
         <div class="text-center animate-fade-in-up">
-          <h1 class="text-4xl md:text-5xl font-extrabold text-teal-800 mb-4">Meet Our Speakers</h1>
+          <h1 class="text-4xl md:text-5xl font-extrabold text-teal-800 mb-4">Our Speakers</h1>
           <div class="w-16 h-1 bg-coral-500 rounded mb-6 mx-auto"></div>
           <p class="text-lg text-gray-700 max-w-2xl mx-auto">Learn from the best in the industry with our distinguished speakers who bring years of expertise and innovation to the workshop.</p>
         </div>
         <div class="mt-12 flex flex-wrap gap-4 justify-center">
-          <!-- Speaker 1 -->
-          <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up profile-card">
-            <div class="flex items-center space-x-3 mb-3">
-              <img src="https://placehold.co/60x60/ff6f61/ffffff?text=AS" alt="Alina Smith" class="w-14 h-14 rounded-full object-cover">
-              <div>
-                <h3 class="text-lg font-bold text-teal-700">Alina Smith</h3>
-                <p class="text-sm text-gray-600">Senior UI/UX Designer</p>
-              </div>
-            </div>
-            <p class="text-sm text-gray-700 mb-3">Award-winning designer with 10+ years experience in creating intuitive user interfaces.</p>
-            <div class="flex space-x-2">
-              <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-              <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-            </div>
-          </div>
-          <!-- Speaker 2 -->
-          <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up delay-100 profile-card">
-            <div class="flex items-center space-x-3 mb-3">
-              <img src="https://placehold.co/60x60/ff6f61/ffffff?text=JD" alt="John Doe" class="w-14 h-14 rounded-full object-cover">
-              <div>
-                <h3 class="text-lg font-bold text-teal-700">John Doe</h3>
-                <p class="text-sm text-gray-600">Design Director</p>
-              </div>
-            </div>
-            <p class="text-sm text-gray-700 mb-3">Innovative design leader specializing in design systems and scalable UI solutions.</p>
-            <div class="flex space-x-2">
-              <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-              <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-            </div>
-          </div>
-          <!-- Speaker 3 -->
-          <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up delay-200 profile-card">
-            <div class="flex items-center space-x-3 mb-3">
-              <img src="https://placehold.co/60x60/ff6f61/ffffff?text=MS" alt="Maria Silva" class="w-14 h-14 rounded-full object-cover">
-              <div>
-                <h3 class="text-lg font-bold text-teal-700">Maria Silva</h3>
-                <p class="text-sm text-gray-600">Product Designer</p>
-              </div>
-            </div>
-            <p class="text-sm text-gray-700 mb-3">Expert in user research and prototyping, helping startups turn ideas into products.</p>
-            <div class="flex space-x-2">
-              <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-              <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-            </div>
-          </div>
-        </div>
+    <!-- Speaker 1 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/ameya.jpg" alt="Prof. Ameya D. Jagtap" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www.wpi.edu/people/faculty/ajagtap" target="_blank" class="hover:underline">
+                Prof. Ameya D. Jagtap
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">Worcester Polytechnic Institute, USA</p>
+    </div>
+    
+     <!-- Speaker 12 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/youngjoon.png" alt="Prof. Youngjoon Hong" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www.youngjoonhong.com/publication" target="_blank" class="hover:underline">
+                Prof. Youngjoon Hong
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">Seoul National University, S Korea</p>
+    </div>
+    
+     <!-- Speaker 14 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/nan.png" alt="Dr. Nan Ye" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://smp.uq.edu.au/profile/5789/nan-ye" target="_blank" class="hover:underline">
+                Dr. Nan Ye
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">University of Queensland, Australia</p>
+    </div>
+    <!-- Speaker 11 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/swagatam.png" alt="prof. swagatam das" class="w-20 h-20 mx-auto rounded-full object-contain bg-white p-1 mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www2.isical.ac.in/~swagatam.das/main.htm" target="_blank" class="hover:underline">
+                Prof. Swagatam Das
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">ISI Kolkata</p>
+    </div>
+
+    <!-- Speaker 2 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/souvik.jpeg" alt="Dr. Souvik Chakraborty" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://scholar.google.com/citations?user=CoYoAQEAAAAJ&hl=en" target="_blank" class="hover:underline">
+                Dr. Souvik Chakraborty
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">IIT Delhi</p>
+    </div>
+
+    <!-- Speaker 3 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/nishchal.jpeg" alt="Prof. Nischal Verma" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www.iitk.ac.in/idea/" target="_blank" class="hover:underline">
+                Prof. Nischal Verma
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">IIT Kanpur</p>
+    </div>
+
+    <!-- Speaker 4 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/jitendra.jpg" alt="Prof. Jitendra Kumar" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www.iitrpr.ac.in/jkumar/" target="_blank" class="hover:underline">
+                Prof. Jitendra Kumar
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">IIT Ropar</p>
+    </div>
+
+    <!-- Speaker 5 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/sanjeev.jpg" alt="Prof. Sanjeev Kumar" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www.iitr.ac.in/~MA/Malikfma" target="_blank" class="hover:underline">
+                Prof. Sanjeev Kumar
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">IIT Roorkee</p>
+    </div>
+
+    <!-- Speaker 6 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/Veerababu.jpg" alt="Dr. Veerababu Dharanalakota" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://researchid.co/dveerababu" target="_blank" class="hover:underline">
+                Dr. Veerababu Dharanalakota
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">IISc Bangalore</p>
+    </div>
+    
+     <!-- Speaker 13 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/manoj.png" alt="Dr. Manoj Thakur" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://faculty.iitmandi.ac.in/~manoj/" target="_blank" class="hover:underline">
+                Dr. Manoj Thakur
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">Dept. of Mathematics, IIT Mandi</p>
+    </div>
+
+    <!-- Speaker 7 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/sangeeta.png" alt="Dr. Sangeeta Yadav" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://beta.du.ac.in/dr-sangeeta-yadav/" target="_blank" class="hover:underline">
+                Dr. Sangeeta Yadav
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">University of Delhi</p>
+    </div>
+
+    <!-- Speaker 8 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/Lokesh.jpg" alt="Lokesh" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://www.linkedin.com/in/lokesh-reddy-895673246/?originalSubdomain=in" target="_blank" class="hover:underline">
+                Dr. C. Lokesh Reddy
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">TCS Research, Pune</p>
+    </div>
+
+    <!-- Speaker 9 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/anupam.jpeg" alt="Dr. Anupam Yadav" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://departments.nitj.ac.in/dept/ma/Faculty/6430446b38bff038a7808524" target="_blank" class="hover:underline">
+                Dr. Anupam Yadav
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">NIT Jalandhar</p>
+    </div>
+
+    <!-- Speaker 10 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/neha.png" alt="Dr. Neha Yadav" class="w-20 h-20 mx-auto rounded-full object-contain bg-white p-1 mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://departments.nitj.ac.in/dept/ma/Faculty/6430447238bff038a7808d4c" target="_blank" class="hover:underline">
+                Dr. Neha Yadav
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">NIT Jalandhar</p>
+    </div>
+     <!-- Speaker 11 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/vipin.png" alt="Dr. Vipin Kumar " class="w-20 h-20 mx-auto rounded-full object-contain bg-white p-1 mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://departments.nitj.ac.in/dept/ma/Faculty/6704b22044df175dc3a63b70" target="_blank" class="hover:underline">
+                Dr. Vipin Kumar 
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">NIT Jalandhar</p>
+    </div>
+    
+    
+    <!-- Speaker 12 -->
+    <div class="w-full sm:w-[48%] md:w-[30%] lg:w-[22%] bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+        <img src="img/Pariskhit.jpg" alt="Pariskhit " class="w-20 h-20 mx-auto rounded-full object-contain bg-white p-1 mb-3">
+        <h3 class="text-lg font-bold text-teal-700">
+            <a href="https://iitr.ac.in/Departments/Electrical%20Engineering%20Department/People/Faculty/101078.html" target="_blank" class="hover:underline">
+                Dr. Pariskhit Pareek 
+            </a>
+        </h3>
+        <p class="text-sm text-gray-600">IIT Roorkee</p>
+    </div>
+</div>
+
       </div>
     </section>
 
@@ -271,6 +522,9 @@
         <div class="text-center animate-fade-in-up">
           <h1 class="text-4xl md:text-5xl font-extrabold text-teal-800 mb-4">Fees & Registration</h1>
           <div class="w-16 h-1 bg-coral-500 rounded mb-6 mx-auto"></div>
+         
+
+
           <p class="text-lg text-gray-700 max-w-2xl mx-auto">Secure your spot for an unforgettable day of learning and networking. Review the registration fees below and register now!</p>
         </div>
         <div class="mt-12 max-w-3xl mx-auto animate-fade-in-up delay-200">
@@ -287,32 +541,53 @@
               <tbody>
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="p-4 text-gray-700">Students</td>
-                  <td class="p-4 text-gray-700">Rs 1500</td>
-                  <td class="p-4 text-gray-700">Rs 2500</td>
+                  <td class="p-4 text-gray-700">Rs 1500/-</td>
+                  <td class="p-4 text-gray-700">Rs 2500/-</td>
                 </tr>
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="p-4 text-gray-700">Faculty</td>
-                  <td class="p-4 text-gray-700">Rs 2500</td>
-                  <td class="p-4 text-gray-700">Rs 3500</td>
+                  <td class="p-4 text-gray-700">Rs 2500/-</td>
+                  <td class="p-4 text-gray-700">Rs 3500/-</td>
                 </tr>
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="p-4 text-gray-700">Industry</td>
-                  <td class="p-4 text-gray-700">Rs 4000</td>
-                  <td class="p-4 text-gray-700">Rs 4000</td>
+                  <td class="p-4 text-gray-700">Rs 4000/-</td>
+                  <td class="p-4 text-gray-700">Rs 5000/-</td>
                 </tr>
                 <tr class="hover:bg-gray-100">
                   <td class="p-4 text-gray-700">International</td>
-                  <td class="p-4 text-gray-700">USD 100</td>
-                  <td class="p-4 text-gray-700">USD 150</td>
+                  <td class="p-4 text-gray-700">USD 100/-</td>
+                  <td class="p-4 text-gray-700">USD 150/-</td>
                 </tr>
               </tbody>
             </table>
+<p><b>Note</b> : 18% GST Exempted on Registration Fee for the <b>Student/Faculty/Staff</b> of NITJ.</p>
           </div>
           <!-- Barcode and Registration Button -->
           <div class="mt-8 flex flex-col md:flex-row items-center justify-center gap-8">
-            <img src="https://placehold.co/200x100/000000/ffffff?text=Barcode" alt="Registration Barcode" class="w-40 h-20 object-contain rounded-lg shadow-md">
-            <button onclick="alert('Redirecting to registration portal...')" class="custom-button bg-coral-500 text-white">Register Now</button>
+            <img src="img/qr2.png" alt="Registration Barcode" class="w-40 h-40 object-contain rounded-lg shadow-md">
+            <!-- <button onclick="alert('Redirecting to registration portal...')" class="custom-button bg-coral-500 text-white">Register Now</button> -->
+             <a href="https://www.nitj.ac.in/events_registration/workshop_wsscml_2025/login" target="_blank" class="custom-button bg-coral-500 text-white">Register Now</a>
+
           </div>
+          
+         
+<!-- Accommodation Section -->
+<div class="mt-12 text-center animate-fade-in-up delay-300">
+  <h2 class="text-3xl font-bold text-teal-800 mb-4">Accommodation</h2>
+  <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-6 px-4">
+    Limited accommodation is available on a nominal payment, on a first-come-first-served basis. Please fill in your details carefully.
+  </p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMJiIw0a1KjCIvUfBEuv_u1l7sKYNt2JwopELri_y6fPYrSA/viewform"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="inline-flex items-center space-x-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-300">
+    <i class="fas fa-bed"></i>
+    <span>Apply for Accommodation</span>
+    <i class="fas fa-external-link-alt text-sm"></i>
+  </a>
+</div>
+
         </div>
       </div>
     </section>
@@ -340,128 +615,101 @@
         <div class="text-center animate-fade-in-up">
           <h1 class="text-4xl md:text-5xl font-extrabold text-teal-800 mb-4">Meet the Organisers</h1>
           <div class="w-16 h-1 bg-coral-500 rounded mb-6 mx-auto"></div>
-          <p class="text-lg text-gray-700 max-w-2xl mx-auto">The Winter School is brought to you by a dedicated team of organizers, featuring speakers, institute representatives, and scholars who ensure a world-class experience.</p>
+          <!-- <p class="text-lg text-gray-700 max-w-2xl mx-auto">The Winter School is brought to you by a dedicated team of organizers, featuring speakers, institute representatives, and scholars who ensure a world-class experience.</p> -->
         </div>
+        <!-- Department Profile -->
+        <div class="mt-12">
+          <!-- <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center">Profile</h2> -->
+          <div class="flex flex-wrap gap-4 justify-center">
+            <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up w-full md:w-3/4 lg:w-2/3">
+              <img src="img/nitj.png" alt="Institute Logo" class="w-full h-32 object-contain rounded-lg mb-4">
+              <h3 class="text-2xl font-bold text-teal-700 mb-3 text-center">
+                Department of Mathematics and Computing
+              </h3>
+              <p class="text-base text-gray-700 mb-4 text-center">
+                Dr B R Ambedkar National Institute of Technology Jalandhar, Punjab, India
+              </p>
 
+              <div class="flex justify-center space-x-4">
+                <a href="https://www.nitj.ac.in/" class="text-teal-600 hover:text-teal-800 text-xl">
+                  <i class="fas fa-globe"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Speakers Profiles -->
-        <div class="mt-12">
-          <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center">Speakers Profiles</h2>
-          <div class="flex flex-wrap gap-4 justify-center">
-            <!-- Speaker 1 -->
-            <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up profile-card">
-              <div class="flex items-center space-x-3 mb-3">
-                <img src="https://placehold.co/60x60/ff6f61/ffffff?text=AS" alt="Alina Smith" class="w-14 h-14 rounded-full object-cover">
-                <div>
-                  <h3 class="text-lg font-bold text-teal-700">Alina Smith</h3>
-                  <p class="text-sm text-gray-600">Senior UI/UX Designer</p>
-                </div>
-              </div>
-              <p class="text-sm text-gray-700 mb-3">Award-winning designer with 10+ years experience in creating intuitive user interfaces.</p>
-              <div class="flex space-x-2">
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-              </div>
-            </div>
-            <!-- Speaker 2 -->
-            <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up delay-100 profile-card">
-              <div class="flex items-center space-x-3 mb-3">
-                <img src="https://placehold.co/60x60/ff6f61/ffffff?text=JD" alt="John Doe" class="w-14 h-14 rounded-full object-cover">
-                <div>
-                  <h3 class="text-lg font-bold text-teal-700">John Doe</h3>
-                  <p class="text-sm text-gray-600">Design Director</p>
-                </div>
-              </div>
-              <p class="text-sm text-gray-700 mb-3">Innovative design leader specializing in design systems and scalable UI solutions.</p>
-              <div class="flex space-x-2">
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-              </div>
-            </div>
-            <!-- Speaker 3 -->
-            <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up delay-200 profile-card">
-              <div class="flex items-center space-x-3 mb-3">
-                <img src="https://placehold.co/60x60/ff6f61/ffffff?text=MS" alt="Maria Silva" class="w-14 h-14 rounded-full object-cover">
-                <div>
-                  <h3 class="text-lg font-bold text-teal-700">Maria Silva</h3>
-                  <p class="text-sm text-gray-600">Product Designer</p>
-                </div>
-              </div>
-              <p class="text-sm text-gray-700 mb-3">Expert in user research and prototyping, helping startups turn ideas into products.</p>
-              <div class="flex space-x-2">
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- Speakers Profiles -->
 
-        <!-- Institute Profile -->
-        <div class="mt-12">
-          <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center">Institute Profile</h2>
-          <div class="flex flex-wrap gap-4 justify-center">
-            <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up profile-card">
-              <img src="https://placehold.co/150x100/005566/ff6f61?text=Institute+Logo" alt="Institute Logo" class="w-full h-24 object-contain rounded-lg mb-3">
-              <h3 class="text-lg font-bold text-teal-700 mb-2">DesignSimX Innovation</h3>
-              <p class="text-sm text-gray-700 mb-3">A premier platform for design education, fostering creativity through workshops and seminars.</p>
-              <div class="flex space-x-2">
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fas fa-globe"></i></a>
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+
+
 
         <!-- Scholars Profiles -->
-        <div class="mt-12">
-          <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center">Scholars Profiles</h2>
-          <div class="flex flex-wrap gap-4 justify-center">
-            <!-- Scholar 1 -->
-            <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up profile-card">
-              <div class="flex items-center space-x-3 mb-3">
-                <img src="https://placehold.co/60x60/ff6f61/ffffff?text=RS" alt="Rajesh Kumar" class="w-14 h-14 rounded-full object-cover">
-                <div>
-                  <h3 class="text-lg font-bold text-teal-700">Rajesh Kumar</h3>
-                  <p class="text-sm text-gray-600">PhD Scholar</p>
-                </div>
-              </div>
-              <p class="text-sm text-gray-700 mb-3">Researching sustainable design practices and their impact on user experience.</p>
-              <div class="flex space-x-2">
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-              </div>
-            </div>
-            <!-- Scholar 2 -->
-            <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up delay-100 profile-card">
-              <div class="flex items-center space-x-3 mb-3">
-                <img src="https://placehold.co/60x60/ff6f61/ffffff?text=LS" alt="Lisa Chen" class="w-14 h-14 rounded-full object-cover">
-                <div>
-                  <h3 class="text-lg font-bold text-teal-700">Lisa Chen</h3>
-                  <p class="text-sm text-gray-600">Research Scholar</p>
-                </div>
-              </div>
-              <p class="text-sm text-gray-700 mb-3">Exploring cognitive psychology in interface design to enhance engagement.</p>
-              <div class="flex space-x-2">
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-              </div>
-            </div>
-            <!-- Scholar 3 -->
-            <div class="bg-gray-50 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up delay-200 profile-card">
-              <div class="flex items-center space-x-3 mb-3">
-                <img src="https://placehold.co/60x60/ff6f61/ffffff?text=AM" alt="Ahmed Malik" class="w-14 h-14 rounded-full object-cover">
-                <div>
-                  <h3 class="text-lg font-bold text-teal-700">Ahmed Malik</h3>
-                  <p class="text-sm text-gray-600">Academic Scholar</p>
-                </div>
-              </div>
-              <p class="text-sm text-gray-700 mb-3">Investigating visual design principles in the era of AI-generated content.</p>
-              <div class="flex space-x-2">
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-teal-600 hover:text-teal-800"><i class="fab fa-twitter"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="mt-12">
+  <h2 class="text-3xl font-bold text-teal-800 mb-8 text-center">Research Group</h2>
+
+  <!-- Grid instead of flex -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+      <!-- professor-->
+      <div class="w-full max-w-xs bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+      <img src="img/harender.png" alt="Harender" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+      <h3 class="text-lg font-bold text-teal-700">Dr. Harender Kumar</h3>
+      <p class="text-sm text-gray-600">Assistant Professor, CCS University Meerut</p>
+    </div>
+    
+    <!-- Scholar 1 -->
+    <div class="w-full max-w-xs bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+      <img src="img/aditi.png" alt="Aditi" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+      <h3 class="text-lg font-bold text-teal-700">Aditi Sharma</h3>
+      <p class="text-sm text-gray-600">PhD Student</p>
+    </div>
+
+    <!-- Scholar 2 -->
+    <div class="w-full max-w-xs bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+      <img src="img/rashmi.png" alt="Rashmi" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+      <h3 class="text-lg font-bold text-teal-700">Rashmi Singh</h3>
+      <p class="text-sm text-gray-600">PhD Student</p>
+    </div>
+
+    <!-- Scholar 3 -->
+    <div class="w-full max-w-xs bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+      <img src="img/manpreet.png" alt="Manpreet" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+      <h3 class="text-lg font-bold text-teal-700">Manpreet Kaur</h3>
+      <p class="text-sm text-gray-600">PhD Student</p>
+    </div>
+
+    <!-- Scholar 4 -->
+    <div class="w-full max-w-xs bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+      <img src="img/shivali.png" alt="Shivali" class="w-20 h-20 mx-auto rounded-full object-contain bg-white p-1 mb-3">
+      <h3 class="text-lg font-bold text-teal-700">Shivali Sharma</h3>
+      <p class="text-sm text-gray-600">PhD Student</p>
+    </div>
+
+    <!-- Scholar 5 -->
+    <div class="w-full max-w-xs bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+      <img src="img/bablu.png" alt="Bablu" class="w-20 h-20 mx-auto rounded-full object-contain bg-white p-1 mb-3">
+      <h3 class="text-lg font-bold text-teal-700">Bablu Kumar Sah</h3>
+      <p class="text-sm text-gray-600">PhD Student</p>
+    </div>
+
+    <!-- Scholar 6 -->
+    <div class="w-full max-w-xs bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+      <img src="img/dhruv.jpeg" alt="Dhruv" class="w-20 h-20 mx-auto rounded-full object-cover mb-3">
+      <h3 class="text-lg font-bold text-teal-700">Dhruv Bindra</h3>
+      <p class="text-sm text-gray-600">M.Tech Student</p>
+    </div>
+
+    <!-- Scholar 7 -->
+    <div class="w-full max-w-xs bg-gray-50 rounded-xl p-4 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-xl text-center">
+      <img src="img/atul.jpg" alt="Atul" class="w-20 h-20 mx-auto rounded-full object-contain bg-white p-1 mb-3">
+      <h3 class="text-lg font-bold text-teal-700">Atul Rajput</h3>
+      <p class="text-sm text-gray-600">M.Tech Student</p>
+    </div>
+
+  </div>
+</div>
+
+
       </div>
     </section>
   </main>
@@ -472,25 +720,43 @@
       <div>
         <h4 class="text-coral-400 font-bold text-xl mb-4">Winter School Info</h4>
         <ul>
-          <li><a href="#schedule" class="hover:text-coral-400 transition-colors">Schedule</a></li>
-          <li><a href="#speaker" class="hover:text-coral-400 transition-colors">Speakers</a></li>
-          <li><a href="#organiser" class="hover:text-coral-400 transition-colors">Organisers</a></li>
+          <!-- <li><button onclick="showSection('schedule')" class="hover:text-coral-400 transition-colors">Schedule</button></li> -->
+          <li><button onclick="showSection('speaker')" class="hover:text-coral-400 transition-colors">Speakers</button></li>
+          <li><button onclick="showSection('organiser')" class="hover:text-coral-400 transition-colors">Organisers</button></li>
         </ul>
       </div>
       <div>
         <h4 class="text-coral-400 font-bold text-xl mb-4">Quick Links</h4>
         <ul>
-          <li><a href="#home" class="hover:text-coral-400 transition-colors">Home</a></li>
-          <li><a href="#registration" class="hover:text-coral-400 transition-colors">Register</a></li>
-          <li><a href="#about" class="hover:text-coral-400 transition-colors">About</a></li>
+            
+
+<li>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMJiIw0a1KjCIvUfBEuv_u1l7sKYNt2JwopELri_y6fPYrSA/viewform"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="flex items-center space-x-2 text-base font-semibold text-white hover:text-teal-300 px-4 py-2 transition-colors duration-300">
+
+    <i class="fas fa-bed"></i>
+    <span> Apply for Accommodation</span>
+    <i class="fas fa-external-link-alt text-sm text-teal-400"></i>
+  </a>
+</li>
+
+
+
+            
+          <li><button href="#home" class="hover:text-coral-400 transition-colors">Home</button></li>
+          <li><button onclick="showSection('registration')" class="hover:text-coral-400 transition-colors">Register</button></li>
+          <li><button onclick="showSection('about')" class="hover:text-coral-400 transition-colors">About</button></li>
         </ul>
       </div>
       <div>
         <h4 class="text-coral-400 font-bold text-xl mb-4">Connect with Us</h4>
         <ul class="space-y-2">
-          <li class="flex items-center space-x-2"><i class="fas fa-phone-alt"></i><span>+91-11-66509601</span></li>
-          <li class="flex items-center space-x-2"><i class="fas fa-envelope"></i><span>info@designsimxinnovation.com</span></li>
-          <li class="flex items-center space-x-2"><i class="fas fa-map-marker-alt"></i><span>F-4, Okhla Industrial Area, Phase-I, New Delhi - 110020, India</span></li>
+          <li class="flex items-center space-x-2"><i class="fas fa-user"></i><span>Dr. Neha Yadav</span></li>
+          <li class="flex items-center space-x-2"><i class="fas fa-phone-alt"></i><span>+91 7310751691</span></li>
+          <li class="flex items-center space-x-2"><i class="fas fa-envelope"></i><span>scml.mc@nitj.ac.in</span></li>
+          <li class="flex items-center space-x-2"><i class="fas fa-map-marker-alt"></i><span> Dr. B.R. Ambedkar National Institute of Technology Jalandhar, Punjab - 144011, India</span></li>
         </ul>
       </div>
     </div>
@@ -500,37 +766,63 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('nav-menu');
-      const icon = document.getElementById('menu-icon');
-      menu.classList.toggle('hidden');
-      icon.innerHTML = menu.classList.contains('hidden') ?
-        `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>` :
-        `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>`;
-    }
+   function toggleMenu() {
+  const menu = document.getElementById('nav-menu');
+  const icon = document.getElementById('menu-icon');
+  menu.classList.toggle('hidden');
+  icon.innerHTML = menu.classList.contains('hidden')
+    ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>` // hamburger
+    : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>`; // X
+}
 
-    function showSection(sectionId) {
-      document.querySelectorAll('main section').forEach(section => {
-        section.classList.add('hidden');
-      });
-      document.getElementById(sectionId).classList.remove('hidden');
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('bg-coral-500', 'text-white', 'shadow-md');
-        link.classList.add('text-gray-200', 'hover:text-white', 'hover:bg-teal-700');
-      });
-      const activeLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
-      if (activeLink) {
-        activeLink.classList.remove('text-gray-200', 'hover:text-white', 'hover:bg-teal-700');
-        activeLink.classList.add('bg-coral-500', 'text-white', 'shadow-md');
-      }
-      document.title = `Winter School | ${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`;
-      toggleMenu();
-    }
+function showSection(sectionId) {
+  // hide all sections
+  document.querySelectorAll('main section').forEach(section => {
+    section.classList.add('hidden');
+  });
+  // show selected section
+  document.getElementById(sectionId).classList.remove('hidden');
 
-   <script
+  // update active nav link
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('bg-coral-500', 'text-white', 'shadow-md');
+    link.classList.add('text-gray-200', 'hover:text-white', 'hover:bg-teal-700');
+  });
+
+  const activeLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+  if (activeLink) {
+    activeLink.classList.remove('text-gray-200', 'hover:text-white', 'hover:bg-teal-700');
+    activeLink.classList.add('bg-coral-500', 'text-white', 'shadow-md');
+  }
+
+  document.title = `Winter School | ${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}`;
+
+  // ✅ Close menu only if in mobile mode
+  const menu = document.getElementById('nav-menu');
+  if (!menu.classList.contains('hidden') && window.innerWidth < 768) {
+    toggleMenu();
+  }
+}
+
+// Show home section by default
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("nav-menu").classList.add("hidden"); // keep menu hidden at start
+  showSection('home');
+});
+
+
+  </script>
+  <script
 src="https://ai-support-saas-main.onrender.com/static/widget/widget.js"
 data-org-key="sk_org_uae3io4GZz8NnzCZb-l-gmWrwPQHXMXjw4EQCavywbc"
 data-api-base="https://ai-support-saas-main.onrender.com">
 </script>
+  <!-- WhatsApp Floating Button -->
+<!--<div id="whatsapp-button">
+  <a href="https://wa.me/7310751691?text=Hi, I'm interested in SCML-2025 registration!" target="_blank" rel="noopener noreferrer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat on WhatsApp" width="50" height="50" style="border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+  </a>
+</div>
+  -->
 </body>
 </html>
